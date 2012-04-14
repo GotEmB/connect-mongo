@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>connect-mongo by kcbanner</title>
+    
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>connect-mongo</h1>
+        <p>MongoDB session store for Connect.</p>
+        <p class="view"><a href="https://github.com/kcbanner/connect-mongo">View the Project on GitHub <small>kcbanner/connect-mongo</small></a></p>
+        <ul>
+          <li><a href="https://github.com/kcbanner/connect-mongo/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kcbanner/connect-mongo/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kcbanner/connect-mongo">Fork On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>connect-mongo</h1>
+
+<p>MongoDB session store for Connect</p>
+
+<p>connect-mongo supports only connect <code>&gt;= 1.0.3</code>.</p>
+
+<h2>Installation</h2>
+
+<p>via npm:</p>
+
+<pre><code>$ npm install connect-mongo
+</code></pre>
+
+<h2>Options</h2>
+
+<ul>
+<li>
+<code>db</code> Database name</li>
+<li>
+<code>collection</code> Collection (optional, default: <code>sessions</code>) </li>
+<li>
+<code>host</code> MongoDB server hostname (optional, default: <code>127.0.0.1</code>)</li>
+<li>
+<code>port</code> MongoDB server port (optional, default: <code>27017</code>)</li>
+<li>
+<code>username</code> Username (optional)</li>
+<li>
+<code>password</code> Password (optional)</li>
+<li>
+<code>auto_reconnect</code> This is passed directly to the MongoDB <code>Server</code> constructor as the auto_reconnect
+                 option (optional, default: false).</li>
+<li>
+<code>url</code> Connection url of the form: <code>mongodb://user:pass@host:port/database/collection</code>.
+      If provided, information in the URL takes priority over the other options.</li>
+<li>
+<code>clear_interval</code> Interval in seconds to clear expired sessions (optional, default: <code>-1</code>).
+      Values &lt;= 0 disable expired session clearing.</li>
+<li>
+<code>stringify</code> If true, connect-mongo will serialize sessions using <code>JSON.stringify</code> before
+            setting them, and deserialize them with <code>JSON.parse</code> when getting them.
+            (optional, default: true). This is useful if you are using types that 
+            MongoDB doesn't support.</li>
+</ul><h2>Example</h2>
+
+<p>With express:</p>
+
+<pre><code>var express = require('express');
+var MongoStore = require('connect-mongo')(express);
+
+app.use(express.session({
+    secret: settings.cookie_secret,
+    store: new MongoStore({
+      db: settings.db
+    })
+  }));
+</code></pre>
+
+<p>With connect:</p>
+
+<pre><code>var connect = require('connect');
+var MongoStore = require('connect-mongo')(connect);
+</code></pre>
+
+<h2>Tests</h2>
+
+<p>You need <code>mocha</code>.</p>
+
+<pre><code>make test
+</code></pre>
+
+<p>The tests use a database called <code>connect-mongo-test</code>.</p>
+
+<h2>License</h2>
+
+<p>(The MIT License)</p>
+
+<p>Copyright (c) 2011 Casey Banner &lt;kcbanner@gmail.com&gt;</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kcbanner">kcbanner</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-3423311-6");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
