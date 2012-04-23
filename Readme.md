@@ -4,6 +4,21 @@
 
   [![Build Status](https://secure.travis-ci.org/kcbanner/connect-mongo.png?branch=master)](http://travis-ci.org/kcbanner/connect-mongo)
 
+## GotEmB/connect-mongo
+
+This fork uses the URL parser from [gett/mongojs](https://github.com/gett/mongojs).
+You can connect to your database only by using the following method:
+
+```javascript
+var mongoStore = require("connect-mongo")(express);
+
+...
+  store: new mongoStore("mongodb://username:password@dbprovider:port/database")
+...
+```
+
+It uses the `sessions` collection.
+
 ## Installation
 
 connect-mongo supports only connect `>= 1.0.3`.
